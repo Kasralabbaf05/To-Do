@@ -1,4 +1,4 @@
-export type Column = {
+export type ColumnType = {
     id: string,
     name: string
 }

@@ -2,6 +2,11 @@
 
 @theme {
     --color-dark: #020202;
-    --color-gray: #A6A7A7;
+    --color-gray: #8C8D8D;
+    --color-darkgray: #2E2E2E;
     --color-silver: #E6E8E6;
+  }
+
+  body {
+    background-color: #020202 !important;
   }
