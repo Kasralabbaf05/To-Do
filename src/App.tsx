@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getTasks, getColumns } from "./Services";
+import { getTasks, getColumns,deleteTask } from "./Services";
 import { TaskType, ColumnType } from "./Types";
 import Column from "./Components/Column";
 import { DndContext, DragEndEvent } from "@dnd-kit/core";
-
+import { ToDoContext } from "./Contexts/To-Do-Context";
 function App() {
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +20,11 @@ function App() {
   const [tasks, setTasks] = useState<TaskType[]>([]);
   const [columns, setColumns] = useState<ColumnType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  function taskDelete (taskId:string) {
+    const taskData = tasks.filter(t => t.id !== taskId)
+    setTasks(taskData)
+    deleteTask(taskId)
+  }
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
     if (!over) return;
@@ -34,6 +39,7 @@ function App() {
   return (
     <>
       <div className="flex flex-wrap gap-4 p-15">
+        <ToDoContext value={{taskDelete}}>
         <DndContext onDragEnd={handleDragEnd}>
           {columns.map((column, id) => (
             <Column
@@ -46,6 +52,7 @@ function App() {
             />
           ))}
         </DndContext>
+        </ToDoContext>
       </div>
     </>
   );

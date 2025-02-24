@@ -1,7 +1,9 @@
 {
-  "tasks": [
-    { "id": "1", "name": "Write Essay", "status": "1", "order": 0 },
-    { "id": "2", "name": "Write C app", "status": "1", "order": 1 }
-  ],
-  "columns": [{ "id": "1", "name": "To Do" }]
+  "tasks": [],
+  "columns": [
+    {
+      "id": "1",
+      "name": "To Do"
+    }
+  ]
 }

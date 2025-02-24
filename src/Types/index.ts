@@ -1,3 +1,3 @@
 export type { ColumnType } from "./Column";
 export type { TaskType } from "./Task";
-export type { ToDoContext } from "./ToDoContext";
+export type { ToDoContextType } from "./ToDoContext";
